@@ -10,6 +10,7 @@ const App = () => {
   const mapInstance = useRef(null);
   const markers = useRef([]);
 
+  const [newAccident, setNewAccident] = useState(null);
   const [status, setStatus] = useState("Disconnected");
 
   useEffect(() => {
@@ -33,15 +34,14 @@ const App = () => {
             const { vehicleRegistrationNumber, timestamp, location } = accidentData;
             const { latitude, longitude } = location;
 
-            setAccidents((prev) => [
-              ...prev,
-              {
-                vehicleRegistrationNumber,
-                timestamp,
-                latitude,
-                longitude,
-              },
-            ]);
+            const newAccident = {
+              vehicleRegistrationNumber,
+              timestamp,
+              latitude,
+              longitude,
+            };
+            setAccidents((prev) => [...prev, newAccident]);
+            setNewAccident(newAccident);
           } else {
             console.warn("Unknown message type:", jsonData.type);
           }
@@ -106,6 +106,21 @@ const App = () => {
     }
   }, [accidents]);
 
+
+  useEffect(() => {
+    if (newAccident) {
+      const timer = setTimeout(() => {
+        setNewAccident(null);
+      }, 3000); // 3초 후에 애니메이션 클래스 제거
+      return () => clearTimeout(timer);
+    }
+  }, [newAccident]);
+
+  const handleNewAccident = (accident) => {
+    setAccidents((prevAccidents) => [...prevAccidents, accident]);
+    setNewAccident(accident);
+  };
+
   const handleAccidentClick = (accident) => {
     setSelectedAccident(accident);
     mapInstance.current.panTo({ lat: accident.latitude, lng: accident.longitude });
@@ -132,6 +147,7 @@ const App = () => {
           <div
             key={index}
             onClick={() => handleAccidentClick(accident)}
+            className={newAccident === accident ? 'blink' : ''}
             style={{
               padding: "10px",
               margin: "10px 0",
