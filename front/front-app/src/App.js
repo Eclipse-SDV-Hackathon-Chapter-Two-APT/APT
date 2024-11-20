@@ -112,6 +112,15 @@ const App = () => {
     mapInstance.current.setZoom(14);
   };
 
+  const handleDeleteAccident = (vehicleRegistrationNumber) => {
+    setAccidents((prevAccidents) =>
+      prevAccidents.filter(
+        (accident) => accident.vehicleRegistrationNumber !== vehicleRegistrationNumber
+      )
+    );
+  };
+
+
   return (
     <div style={{ display: "flex", height: "100vh" }}>
 
@@ -129,6 +138,7 @@ const App = () => {
               background: selectedAccident === accident ? "#e0f7fa" : "#ffffff",
               border: "1px solid #ccc",
               cursor: "pointer",
+              position: "relative"
             }}
           >
             <p>차량 번호: {accident.vehicleRegistrationNumber}</p>
@@ -136,6 +146,25 @@ const App = () => {
             <p>위도: {accident.latitude}</p>
             <p>경도: {accident.longitude}</p>
 
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDeleteAccident(accident.vehicleRegistrationNumber);
+              }}
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                backgroundColor: "red",
+                color: "white",
+                border: "none",
+                borderRadius: "50%",
+                padding: "5px 10px",
+                cursor: "pointer",
+              }}
+            >
+              X
+            </button>
           </div>
         ))}
       </div>
