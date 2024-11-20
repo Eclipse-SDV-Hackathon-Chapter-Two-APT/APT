@@ -1,0 +1,28 @@
+{
+  "prototypes": [
+    {
+      "name": "Car",
+      "length": "4.0 m",
+      "minGap": "2.5 m",
+      "maxSpeed": "70.0 m/s",
+      "vehicleClass": "Car",
+      "accel": 2.6,
+      "decel": 4.5,
+      "sigma": 0.5,
+      "tau": 1.0,
+      "speedFactor": 1.0,
+      "deviations": {
+        "length": 0.0,
+        "width": 0.0,
+        "height": 0.0,
+        "minGap": 0.0,
+        "maxSpeed": 0.0,
+        "speedFactor": 0.1,
+        "accel": 0.0,
+        "decel": 0.0,
+        "tau": 0.0
+      }
+    }
+  ],
+  "vehicles": []
+}

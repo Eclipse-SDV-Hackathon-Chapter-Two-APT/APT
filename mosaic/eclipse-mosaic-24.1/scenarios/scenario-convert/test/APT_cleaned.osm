@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="Osmosis 0.48.3">
+  <relation id="55734" version="107" timestamp="2024-11-20T19:31:41Z" uid="251543" user="ChrissW-R1" changeset="148840657">
+    <member type="node" ref="1779489656" role="label"/>
+    <member type="way" ref="32970437" role="outer"/>
+    <member type="way" ref="69414399" role="outer"/>
+    <member type="way" ref="69557895" role="outer"/>
+    <member type="way" ref="29411648" role="outer"/>
+    <member type="way" ref="69718892" role="outer"/>
+    <member type="way" ref="32969905" role="outer"/>
+    <member type="way" ref="462531853" role="outer"/>
+    <member type="way" ref="462531854" role="outer"/>
+    <member type="way" ref="96986333" role="outer"/>
+    <member type="way" ref="96986345" role="outer"/>
+    <member type="way" ref="50336548" role="outer"/>
+    <member type="way" ref="52044917" role="outer"/>
+    <member type="way" ref="315968434" role="outer"/>
+    <member type="way" ref="1103154537" role="outer"/>
+    <member type="way" ref="441828979" role="outer"/>
+    <member type="way" ref="1103154538" role="outer"/>
+    <member type="way" ref="441828986" role="outer"/>
+    <member type="way" ref="315968442" role="outer"/>
+    <member type="way" ref="441828976" role="outer"/>
+    <member type="way" ref="315968445" role="outer"/>
+    <member type="way" ref="315968439" role="outer"/>
+    <member type="way" ref="107682734" role="outer"/>
+    <member type="way" ref="107710366" role="outer"/>
+    <member type="way" ref="113050138" role="outer"/>
+    <member type="way" ref="50336546" role="outer"/>
+    <member type="way" ref="107705403" role="outer"/>
+    <member type="way" ref="305092824" role="outer"/>
+    <member type="way" ref="25156776" role="outer"/>
+    <member type="way" ref="25156778" role="outer"/>
+    <member type="way" ref="305092814" role="outer"/>
+    <member type="way" ref="107957623" role="outer"/>
+    <member type="way" ref="316741505" role="outer"/>
+    <member type="way" ref="316741511" role="outer"/>
+    <member type="way" ref="316741517" role="outer"/>
+    <member type="way" ref="316741503" role="outer"/>
+    <member type="way" ref="158184085" role="outer"/>
+    <member type="way" ref="158184095" role="outer"/>
+    <member type="way" ref="25155280" role="outer"/>
+    <member type="way" ref="25155281" role="outer"/>
+    <member type="way" ref="539195707" role="outer"/>
+    <member type="way" ref="25155980" role="outer"/>
+    <member type="way" ref="305175443" role="outer"/>
+    <member type="way" ref="539195708" role="outer"/>
+    <member type="way" ref="25155983" role="outer"/>
+    <member type="way" ref="25155985" role="outer"/>
+    <member type="way" ref="305175480" role="outer"/>
+    <member type="way" ref="305175479" role="outer"/>
+    <member type="way" ref="305228550" role="outer"/>
+    <member type="way" ref="305228555" role="outer"/>
+    <member type="way" ref="305371576" role="outer"/>
+    <member type="way" ref="305371579" role="outer"/>
+    <member type="way" ref="305371580" role="outer"/>
+    <member type="way" ref="305371571" role="outer"/>
+    <member type="way" ref="305371577" role="outer"/>
+    <member type="way" ref="305371572" role="outer"/>
+    <member type="way" ref="305371578" role="outer"/>
+    <member type="way" ref="305371573" role="outer"/>
+    <member type="way" ref="305236037" role="outer"/>
+    <member type="way" ref="305236038" role="outer"/>
+    <member type="way" ref="305236039" role="outer"/>
+    <member type="way" ref="25467809" role="outer"/>
+    <member type="way" ref="1263952092" role="outer"/>
+    <member type="way" ref="496527945" role="outer"/>
+    <member type="way" ref="25414820" role="outer"/>
+    <tag k="admin_level" v="9"/>
+    <tag k="boundary" v="administrative"/>
+    <tag k="de:regionalschluessel" v="11006"/>
+    <tag k="description" v="6. Verwaltungsbezirk von Berlin"/>
+    <tag k="geographical_region" v="Teltow"/>
+    <tag k="name" v="Steglitz-Zehlendorf"/>
+    <tag k="name:prefix" v="Bezirk"/>
+    <tag k="name:ru" v="Штеглиц-Целендорф"/>
+    <tag k="place" v="borough"/>
+    <tag k="population" v="308840"/>
+    <tag k="population:date" v="2020-12-31"/>
+    <tag k="ref" v="06"/>
+    <tag k="source:population" v="https://de.wikipedia.org/wiki/Bezirk_Steglitz-Zehlendorf"/>
+    <tag k="TMC:cid_58:tabcd_1:Class" v="Area"/>
+    <tag k="TMC:cid_58:tabcd_1:LCLversion" v="9.00"/>
+    <tag k="TMC:cid_58:tabcd_1:LocationCode" v="32815"/>
+    <tag k="type" v="boundary"/>
+    <tag k="website" v="http://www.berlin.de/ba-steglitz-zehlendorf/"/>
+    <tag k="wikidata" v="Q158064"/>
+    <tag k="wikipedia" v="de:Bezirk Steglitz-Zehlendorf"/>
+  </relation>
+</osm>
