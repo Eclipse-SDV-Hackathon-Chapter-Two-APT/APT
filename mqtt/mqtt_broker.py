@@ -40,7 +40,6 @@ def on_message1(client, userdata, message):
 
 def alert_publish_message(TOPIC_ALERT, message):
     result = send_alert_server.publish(TOPIC_ALERT, message)
-    # 발행 결과 확인
     status = result[0]
     if status == 0:
         print(f"Message '{message}' sent to topic '{TOPIC_ALERT}'")
@@ -50,7 +49,6 @@ def alert_publish_message(TOPIC_ALERT, message):
 
 def police_publish_message(TOPIC_POLICE, message):
     result = police_alert_server.publish(TOPIC_POLICE, message)
-    # 발행 결과 확인
     status = result[0]
     if status == 0:
         print(f"Message '{message}' sent to topic '{TOPIC_POLICE}'")
