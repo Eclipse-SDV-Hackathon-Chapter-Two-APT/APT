@@ -2,8 +2,6 @@ import './App.css';
 import React, { useEffect, useRef, useState } from "react";
 
 const App = () => {
-  // const [webSocket, setWebSocket] = useState < WebSocket | null > (null);
-  // const [socket, setSocket] = useState(null); // 소켓 상태 변수와 상태 변경 함수
   const socketRef = useRef(null);
   const [message, setMessage] = useState(''); // 서버로부터 받은 메시지
   const [inputMessage, setInputMessage] = useState(''); // 보내고자 하는 메시지
@@ -44,7 +42,6 @@ const App = () => {
       };
     }
 
-    // 컴포넌트 언마운트 시 WebSocket 닫기
     return () => {
       if (socket.readyState === 1) {
         socket.close();
@@ -53,18 +50,17 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // Google Maps API 로드
     const loadGoogleMaps = () => {
       if (window.google) {
         mapInstance.current = new window.google.maps.Map(mapRef.current, {
-          center: { lat: 49.014, lng: 8.4043 }, // 초기 지도 중심
+          center: { lat: 49.014, lng: 8.4043 },
           zoom: 12,
         });
       }
     };
 
     const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`; // API Key 추가
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`;
     script.async = true;
     script.defer = true;
     script.onload = loadGoogleMaps;
@@ -75,15 +71,11 @@ const App = () => {
     };
   }, []);
 
-
   useEffect(() => {
-    // 사고 데이터가 변경될 때 마커 업데이트
     if (mapInstance.current) {
-      // 기존 마커 제거
       markers.current.forEach((marker) => marker.setMap(null));
       markers.current = [];
 
-      // 새로운 마커 추가
       accidents.forEach((accident) => {
         const marker = new window.google.maps.Marker({
           position: { lat: accident.lat, lng: accident.lng },
