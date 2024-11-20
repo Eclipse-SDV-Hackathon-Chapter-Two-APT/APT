@@ -114,16 +114,15 @@ const App = () => {
 
   return (
     <div style={{ display: "flex", height: "100vh" }}>
-      {/* 지도 */}
+
       <div ref={mapRef} style={{ flex: 3, height: "100%" }}></div>
 
-      {/* 사고 정보 리스트 */}
       <div style={{ flex: 1, overflowY: "scroll", padding: "10px", background: "#f8f8f8" }}>
         <h2>사고 정보</h2>
         {accidents.map((accident, index) => (
           <div
             key={index}
-            onClick={() => handleAccidentClick(accident)} // 클릭 시 해당 사고 위치로 지도 이동
+            onClick={() => handleAccidentClick(accident)}
             style={{
               padding: "10px",
               margin: "10px 0",
