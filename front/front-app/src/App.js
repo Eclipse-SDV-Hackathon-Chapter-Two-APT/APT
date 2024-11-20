@@ -3,32 +3,51 @@ import React, { useEffect, useRef, useState } from "react";
 
 const App = () => {
   const socketRef = useRef(null);
-  const [message, setMessage] = useState(''); // 서버로부터 받은 메시지
-  const [inputMessage, setInputMessage] = useState(''); // 보내고자 하는 메시지
-
-  const [accidents, setAccidents] = useState([]); // 사고 데이터 리스트
-  const [selectedAccident, setSelectedAccident] = useState(null); // 선택된 사고
-  const mapRef = useRef(null); // 지도 DOM 요소
-  const mapInstance = useRef(null); // Google Maps 객체
-  const markers = useRef([]); // 지도에 표시된 마커 리스트
+  const [message, setMessage] = useState([]);
+  const [accidents, setAccidents] = useState([]);
+  const [selectedAccident, setSelectedAccident] = useState(null);
+  const mapRef = useRef(null);
+  const mapInstance = useRef(null);
+  const markers = useRef([]);
 
   const [status, setStatus] = useState("Disconnected");
-  let socket;
 
   useEffect(() => {
     if (!socketRef.current) {
-      socket = new WebSocket("ws://0.0.0.0:8765");
+      const socket = new WebSocket("ws://0.0.0.0:8765");
       socketRef.current = socket;
 
       socket.onopen = () => {
         setStatus("Connected");
         console.log("WebSocket Connected");
-        socket.send("Hello Server!"); // 서버로 메시지 보내기
       };
 
       socket.onmessage = (event) => {
         console.log("Message from server:", event.data);
-        // setMessages((prev) => [...prev, event.data]);
+        try {
+          const jsonData = JSON.parse(event.data);
+          console.log("Parsed message:", jsonData);
+
+          if (jsonData.type === "accident") {
+            const accidentData = JSON.parse(jsonData.data);
+            const { vehicleRegistrationNumber, timestamp, location } = accidentData;
+            const { latitude, longitude } = location;
+
+            setAccidents((prev) => [
+              ...prev,
+              {
+                vehicleRegistrationNumber,
+                timestamp,
+                latitude,
+                longitude,
+              },
+            ]);
+          } else {
+            console.warn("Unknown message type:", jsonData.type);
+          }
+        } catch (error) {
+          console.error("Failed to parse message:", error);
+        }
       };
 
       socket.onerror = (error) => {
@@ -43,8 +62,8 @@ const App = () => {
     }
 
     return () => {
-      if (socket.readyState === 1) {
-        socket.close();
+      if (socketRef.current?.readyState === 1) {
+        socketRef.current.close();
       }
     };
   }, []);
@@ -78,9 +97,9 @@ const App = () => {
 
       accidents.forEach((accident) => {
         const marker = new window.google.maps.Marker({
-          position: { lat: accident.lat, lng: accident.lng },
+          position: { lat: accident.latitude, lng: accident.longitude },
           map: mapInstance.current,
-          title: `사고 차량: ${accident.vehicleId}`,
+          title: `차량 번호: ${accident.vehicleRegistrationNumber}`,
         });
         markers.current.push(marker);
       });
@@ -89,8 +108,8 @@ const App = () => {
 
   const handleAccidentClick = (accident) => {
     setSelectedAccident(accident);
-    mapInstance.current.panTo({ lat: accident.lat, lng: accident.lng }); // 지도 중심 이동
-    mapInstance.current.setZoom(14); // 클릭한 사고 차량에 맞게 줌 레벨 조정
+    mapInstance.current.panTo({ lat: accident.latitude, lng: accident.longitude });
+    mapInstance.current.setZoom(14);
   };
 
   return (
@@ -113,9 +132,11 @@ const App = () => {
               cursor: "pointer",
             }}
           >
-            <p>차량 ID: {accident.vehicleId}</p>
-            <p>위도: {accident.lat}</p>
-            <p>경도: {accident.lng}</p>
+            <p>차량 번호: {accident.vehicleRegistrationNumber}</p>
+            <p>시간: {accident.timestamp}</p>
+            <p>위도: {accident.latitude}</p>
+            <p>경도: {accident.longitude}</p>
+
           </div>
         ))}
       </div>
