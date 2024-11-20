@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 const App = () => {
   // const [webSocket, setWebSocket] = useState < WebSocket | null > (null);
   // const [socket, setSocket] = useState(null); // 소켓 상태 변수와 상태 변경 함수
-
+  const socketRef = useRef(null);
   const [message, setMessage] = useState(''); // 서버로부터 받은 메시지
   const [inputMessage, setInputMessage] = useState(''); // 보내고자 하는 메시지
 
@@ -18,37 +18,35 @@ const App = () => {
   let socket;
 
   useEffect(() => {
-    // WebSocket 연결 생성
-    socket = new WebSocket("ws://0.0.0.0:8765");
+    if (!socketRef.current) {
+      socket = new WebSocket("ws://0.0.0.0:8765");
+      socketRef.current = socket;
 
-    // WebSocket 열림
-    socket.onopen = () => {
-      setStatus("Connected");
-      console.log("WebSocket Connected");
-      socket.send("Hello Server!"); // 서버로 메시지 보내기
-    };
+      socket.onopen = () => {
+        setStatus("Connected");
+        console.log("WebSocket Connected");
+        socket.send("Hello Server!"); // 서버로 메시지 보내기
+      };
 
-    // 서버로부터 메시지 수신
-    socket.onmessage = (event) => {
-      console.log("Message from server:", event.data);
-      // setMessages((prev) => [...prev, event.data]);
-    };
+      socket.onmessage = (event) => {
+        console.log("Message from server:", event.data);
+        // setMessages((prev) => [...prev, event.data]);
+      };
 
-    // WebSocket 오류
-    socket.onerror = (error) => {
-      console.error("WebSocket Error:", error);
-      setStatus("Error");
-    };
+      socket.onerror = (error) => {
+        console.error("WebSocket Error:", error);
+        setStatus("Error");
+      };
 
-    // WebSocket 닫힘
-    socket.onclose = () => {
-      setStatus("Disconnected");
-      console.log("WebSocket Disconnected");
-    };
+      socket.onclose = () => {
+        setStatus("Disconnected");
+        console.log("WebSocket Disconnected");
+      };
+    }
 
     // 컴포넌트 언마운트 시 WebSocket 닫기
     return () => {
-      if (socket.readyState === 1) { // <-- This is important
+      if (socket.readyState === 1) {
         socket.close();
       }
     };
