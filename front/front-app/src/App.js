@@ -143,7 +143,7 @@ const App = () => {
 
       <div style={{ flex: 1, overflowY: "scroll", padding: "10px", background: "#f8f8f8" }}>
         <h2>사고 정보</h2>
-        {accidents.map((accident, index) => (
+        {accidents.slice().reverse().map((accident, index) => (
           <div
             key={index}
             onClick={() => handleAccidentClick(accident)}
