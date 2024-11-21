@@ -20,7 +20,6 @@ mqtt_client.connect(BROKER_ADDRESS, PORT)
 
 def publish_message(topic, message):
     result = mqtt_client.publish(topic, message)
-    # 발행 결과 확인
     status = result[0]
     if status == 0:
         print(f"Message '{message}' sent to topic '{topic}'")
@@ -60,7 +59,6 @@ while True:
         print("Terminating the client...")
 
     finally:
-        # 연결 종료
         mqtt_client.loop_stop()
         mqtt_client.disconnect()
 

@@ -34,8 +34,8 @@ warning_road_icon = pygame.transform.scale(warning_road_icon, (328, 99))
 alpha = 0
 
 message_to_display = None
-slide_value = None
-humidity = None
+slide_value = 0
+humidity = 0
 message_display_time = None
 
 threshold = 500
@@ -50,13 +50,14 @@ def on_connect(client, userdata, flags, reason_code, properties=None):
         print(f"Failed to connect, reason code: {reason_code}")
 
 def on_message(client, userdata, message):
-    global message_to_display, slide_cnt, time_cnt, message_display_time
+    global message_to_display, slide_cnt, time_cnt, message_display_time, humidity
     try:
         decoded_message = message.payload.decode('utf-8')
         data = json.loads(decoded_message)
         slide_value = data.get("slide_value")
         humidity = data.get("humidity")
-
+        print(slide_value)
+        print(humidity)
         if slide_value >= threshold:
             slide_cnt += 1
 
@@ -65,6 +66,7 @@ def on_message(client, userdata, message):
             slide_cnt = 0
 
         message_to_display = f"Slide count: {slide_cnt}"
+        print(message_to_display)
         message_display_time = time.time()
         print("Weather successfully received")
     except json.JSONDecodeError:
@@ -100,8 +102,9 @@ while True:
     if message_to_display:
         print("Get Message")
 
-    if slide_cnt > 10 and humidity > 70:
+    if slide_cnt > 10 and humidity >= 60:
         display_message(message_to_display)
+        print(00)
         time.sleep(3)
     else:
         screen.blit(background_image, (0, 0))
