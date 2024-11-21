@@ -1,3 +1,6 @@
 [submodule "VehicleHUD"]
 	path = VehicleHUD
 	url = https://github.com/Eclipse-SDV-Hackathon-Chapter-Two-APT/VehicleHUD.git
+[submodule "velocitas"]
+	path = velocitas
+	url = https://github.com/Eclipse-SDV-Hackathon-Chapter-Two-APT/velocitas.git
