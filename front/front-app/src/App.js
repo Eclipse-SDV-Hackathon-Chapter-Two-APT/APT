@@ -79,7 +79,14 @@ const App = () => {
           zoom: 15,
         });
         directionsService.current = new window.google.maps.DirectionsService();
-        directionsRenderer.current = new window.google.maps.DirectionsRenderer()
+        directionsRenderer.current = new window.google.maps.DirectionsRenderer({
+          map: mapInstance.current,
+          polylineOptions: {
+            strokeColor: '#000000', // 경로 색상 변경
+            strokeOpacity: 1.0,
+            strokeWeight: 5
+          }
+        });
         directionsRenderer.current.setMap(mapInstance.current);
 
         trafficLayer.current = new window.google.maps.TrafficLayer();
