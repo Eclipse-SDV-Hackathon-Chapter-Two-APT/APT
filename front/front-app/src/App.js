@@ -11,6 +11,7 @@ const App = () => {
   const markers = useRef([]);
   const directionsService = useRef(null);
   const directionsRenderer = useRef(null);
+  const trafficLayer = useRef(null);
 
   const [newAccident, setNewAccident] = useState(null);
   const [status, setStatus] = useState("Disconnected");
@@ -80,6 +81,9 @@ const App = () => {
         directionsService.current = new window.google.maps.DirectionsService();
         directionsRenderer.current = new window.google.maps.DirectionsRenderer()
         directionsRenderer.current.setMap(mapInstance.current);
+
+        trafficLayer.current = new window.google.maps.TrafficLayer();
+        trafficLayer.current.setMap(mapInstance.current);
       }
     };
 
