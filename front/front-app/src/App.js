@@ -192,7 +192,7 @@ const App = () => {
           style={{ boxShadow: '3px 0px 10px 0 rgba(0,0,0,0.25)' }}
         >
           <p className="absolute left-[300px] top-0 text-[35px] font-semibold text-center text-[#f3efef]">
-            EMS
+            APT
           </p>
           <p className="absolute left-[185px] top-11 text-xs font-semibold text-center text-[#b2b2b2]">
             Comprehensive Control System
