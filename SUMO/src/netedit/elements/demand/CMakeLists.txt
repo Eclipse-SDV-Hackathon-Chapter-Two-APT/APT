@@ -1,0 +1,45 @@
+set(netedit_elements_demand_SRCS
+   GNERouteHandler.h
+   GNERouteHandler.cpp
+   GNEDemandElement.h
+   GNEDemandElement.cpp
+   GNEDemandElementDistribution.h
+   GNEDemandElementDistribution.cpp
+   GNEDemandElementFlow.h
+   GNEDemandElementFlow.cpp
+   GNEDemandElementPlan.h
+   GNEDemandElementPlan.cpp
+   GNEDistribution.h
+   GNEDistribution.cpp
+   GNERoute.h
+   GNERoute.cpp
+   GNERouteDistribution.h
+   GNERouteDistribution.cpp
+   GNEVType.h
+   GNEVType.cpp
+   GNEVTypeDistribution.h
+   GNEVTypeDistribution.cpp
+   GNEVehicle.h
+   GNEVehicle.cpp
+   GNEStop.h
+   GNEStop.cpp
+   GNEStopPlan.h
+   GNEStopPlan.cpp
+   GNEPerson.h
+   GNEPerson.cpp
+   GNEPersonTrip.h
+   GNEPersonTrip.cpp
+   GNEWalk.h
+   GNEWalk.cpp
+   GNERide.h
+   GNERide.cpp
+   GNEContainer.h
+   GNEContainer.cpp
+   GNETranship.h
+   GNETranship.cpp
+   GNETransport.h
+   GNETransport.cpp
+   )
+
+add_library(netedit_elements_demand STATIC ${netedit_elements_demand_SRCS})
+set_property(TARGET netedit_elements_demand PROPERTY PROJECT_LABEL "z_netedit_elements_demand")

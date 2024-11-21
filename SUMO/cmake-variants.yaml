@@ -1,0 +1,49 @@
+buildType:
+  default: release
+  description: Switch between debug and release build type
+  choices:
+    debug:
+      short: Debug
+      long: Debug
+      buildType: Debug
+      settings:
+        CMAKE_BUILD_TYPE: Debug
+    minimal:
+      short: Minimal
+      long: Minimal build without optional libs / GUI
+      buildType: Release
+      settings:
+        CMAKE_BUILD_TYPE: Release
+        CHECK_OPTIONAL_LIBS: no
+        FOX_CONFIG: ''
+        BINARY_SUFFIX: M
+    profiling:
+      short: Profiling
+      long: Profiling
+      buildType: RelWithDebInfo
+      settings:
+        CMAKE_BUILD_TYPE: RelWithDebInfo
+        PROFILING: yes
+    release:
+      short: Release
+      long: Release
+      buildType: Release
+      settings:
+        CMAKE_BUILD_TYPE: Release
+
+bindings:
+  default: yes
+  description: Enable Python and Java bindings?
+  choices:
+    yes:
+      short: Bindings
+      long: Bindings enabled
+      settings:
+        ENABLE_PYTHON_BINDINGS: yes
+        ENABLE_JAVA_BINDINGS: yes
+    no:
+      short: noBindings
+      long: Bindings not enabled
+      settings:
+        ENABLE_JAVA_BINDINGS: no
+        ENABLE_PYTHON_BINDINGS: no
