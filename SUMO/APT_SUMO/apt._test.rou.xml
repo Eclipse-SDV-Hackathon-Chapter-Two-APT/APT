@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-11-21 22:46:05 by Eclipse SUMO netedit Version 1.21.0
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- Routes -->
+    <route id="offender_route" edges="-753316505#1 1228446781#1 168935757#1 168935757#2 -1136657266#2 -1136657266#1"/>
+    <route id="victim" edges="-840229277#1 -840229277#0 1132163645#4 1132164217#5 665241888#1" color="0,255,19"/>
+    <!-- Vehicles, persons and containers (sorted by depart) -->
+    <vehicle id="v_0" depart="0.00" color="255,47,82" route="offender_route"/>
+    <vehicle id="v_1" depart="0.00" color="255,47,82" route="victim"/>
+</routes>
