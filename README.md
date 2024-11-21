@@ -17,6 +17,7 @@ Therefore, we would like to propose a service that can protect surrounding vehic
 
 ## Description
 ### Architecture
+![APT_architecture](https://github.com/user-attachments/assets/a85ab296-1135-487f-8e65-ee53d13a284b)
 ### Features
 
 Surrounding vehicles judge the traffic situation based on the information of the dangerous vehicle they received. Based on the judged information, they immediately display appropriate warning notifications on the HUD so that the driver can respond to potential threats in advance.
