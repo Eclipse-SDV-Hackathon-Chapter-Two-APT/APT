@@ -1,4 +1,9 @@
 # APT
+Team Members: Wonjeong Lim, Seungjoo Kim, Soonwoong Kim, Hanbin Yeo, Eunji Lee
+
+<a href="https://github.com/Eclipse-SDV-Hackathon-Chapter-Two-APT/APT/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Eclipse-SDV-Hackathon-Chapter-Two-APT/APT" />
+</a>
 
 ## Project Overview
 
@@ -23,20 +28,24 @@ Therefore, we would like to propose a service that can protect surrounding vehic
 Surrounding vehicles judge the traffic situation based on the information of the dangerous vehicle they received. Based on the judged information, they immediately display appropriate warning notifications on the HUD so that the driver can respond to potential threats in advance.
 
 **Dangerous Car**
+
 	Publishes VSS messages (crash information, speed, engine speed, humidity, etc.). This information is collected in real time and serves as the basis for situational assessment.
 
 **Car dirver**
 - Example 1 - Hit & Run
+![Hit Run Case](https://github.com/user-attachments/assets/37c3d149-702a-4e34-867a-1a954a7e6134)
 1) Notify the surroundings that an accident has occurred.
 2) Provide the distance to the accident site so that the driver can prepare for congested situations.
 3) Provide the recommended speed according to the driving speed so that the driver can prepare for sudden situations.
 
 - Example 2 - Inclement weather (heavy rain)
+![Weather Alert Case](https://github.com/user-attachments/assets/d2a8ec66-f0d2-43b3-a2f9-90d14e0c05ec)
 1) Provide guidance to use fog lights for safe driving.
 2) Provide guidance to maintain an appropriate speed.
 3) Provide traffic signs for safe driving such as no overtaking.
 
 **Police**
+
 	Receive vehicle data sets including the locations of vehicles reporting dangerous situations to identify dangerous areas and their causes. Provide additional information (route to the point) appropriate to the given information.
 
  ### Simulation
