@@ -36,10 +36,10 @@ Severe weather, like rain, fog, or snow, causes **10% of crashes over 10 years**
 ### 📊 System Architecture
 ![APT_architecture](https://github.com/user-attachments/assets/a85ab296-1135-487f-8e65-ee53d13a284b)
 
-### ✨ Key Features
+### ✨ Key Application(Velocitas)
 
 #### 🚗 Vehicle-to-Vehicle Communication
-- Sends real-time data, like crash details, speed, and weather conditions.
+- Sends real-time data, like crash details, speed, and weather conditions using **mosquitto MQTT**.
 - Uses this information to alert nearby cars about potential risks.
 
 #### 👨‍✈️ Driver Notifications
@@ -54,14 +54,15 @@ Severe weather, like rain, fog, or snow, causes **10% of crashes over 10 years**
   1. Suggests turning on fog lights for better visibility.  
   2. Advises drivers to slow down and drive carefully.  
   3. Displays traffic rules, like "No Overtaking."
+---
 
-#### 🚔 Tools for Authorities
-- Collects data from vehicles to find dangerous areas and their causes.
+## 🚔 WebApplication for Authorities
+- Collects data from vehicles via **eclipse mosquitto**  to find dangerous areas and their causes.
 - Gives clear information, like the best routes, to help emergency teams respond faster.
 
 ---
 
-## 🎮 Simulations
+## 🎮 Simulations via **eclipse SUMO**  
 APT includes a **real-time hazard simulation** to:
 - Test how well the system responds to different types of accidents.
 - Improve its accuracy and effectiveness over time.
@@ -87,4 +88,4 @@ APT includes a **real-time hazard simulation** to:
   <img src="https://contrib.rocks/image?repo=Eclipse-SDV-Hackathon-Chapter-Two-APT/APT" alt="Contributors" />
 </a>
 
----
+
