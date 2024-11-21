@@ -9,6 +9,8 @@ const App = () => {
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
   const markers = useRef([]);
+  const directionsService = useRef(null);
+  const directionsRenderer = useRef(null);
 
   const [newAccident, setNewAccident] = useState(null);
   const [status, setStatus] = useState("Disconnected");
@@ -75,6 +77,9 @@ const App = () => {
           center: { lat: 49.014, lng: 8.4043 },
           zoom: 12,
         });
+        directionsService.current = new window.google.maps.DirectionsService();
+        directionsRenderer.current = new window.google.maps.DirectionsRenderer()
+        directionsRenderer.current.setMap(mapInstance.current);
       }
     };
 
@@ -135,6 +140,37 @@ const App = () => {
     );
   };
 
+  const handleNavigate = (accident) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const currentLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+
+        const destination = {
+          lat: accident.latitude,
+          lng: accident.longitude,
+        };
+
+        const request = {
+          origin: currentLocation,
+          destination: destination,
+          travelMode: window.google.maps.TravelMode.DRIVING,
+        };
+
+        directionsService.current.route(request, (result, status) => {
+          if (status === window.google.maps.DirectionsStatus.OK) {
+            directionsRenderer.current.setDirections(result);
+          } else {
+            console.error("Directions request failed due to " + status);
+          }
+        });
+      });
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
 
   return (
     <div style={{ display: "flex", height: "100vh" }}>
