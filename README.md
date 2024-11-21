@@ -1,52 +1,98 @@
-# APT
-Team Members: Wonjeong Lim, Seungjoo Kim, Soonwoong Kim, Hanbin Yeo, Eunji Lee
+# APT - Advanced Prevention Traffic System
 
+<p align="center">
+  <img src="https://contrib.rocks/image?repo=Eclipse-SDV-Hackathon-Chapter-Two-APT/APT" alt="Contributors" />
+</p>
+
+---
+
+## 🌟 Project Overview
+
+Road dangers, like bad weather and careless driving, put lives at risk every day. These dangers don’t just harm individuals—they also cause traffic jams and other problems for society.
+
+**APT** is an **Advanced Traffic Prevention System** that aims to:
+- Keep nearby vehicles safe from potential hazards.
+- Help authorities respond quickly and effectively to accidents.
+- Reduce additional damage by using real-time information.
+
+---
+
+## 🚘 Use Cases
+
+### 🔴 Hit & Run
+Hit-and-run accidents are a big problem, making up **24% of the 7,454 crashes reported by NHTSA in 2020**. These accidents can cause traffic chaos and slow down emergency responses. APT helps by:
+- Sending alerts to nearby vehicles.
+- Sharing important details like the accident location and suggested speeds.
+
+### 🌧️ Bad Weather
+Severe weather, like rain, fog, or snow, causes **10% of crashes over 10 years**, according to NHTSA. APT helps drivers stay safe by:
+- Suggesting actions like turning on fog lights.
+- Showing safe driving tips, such as "No Overtaking."
+
+---
+
+## 🛠️ Project Description
+
+### 📊 System Architecture
+![APT_architecture](https://github.com/user-attachments/assets/a85ab296-1135-487f-8e65-ee53d13a284b)
+
+### ✨ Key Features
+
+#### 🚗 Vehicle-to-Vehicle Communication
+- Sends real-time data, like crash details, speed, and weather conditions.
+- Uses this information to alert nearby cars about potential risks.
+
+#### 👨‍✈️ Driver Notifications
+- **Hit & Run Scenario**:  
+  ![Hit Run Case](https://github.com/user-attachments/assets/37c3d149-702a-4e34-867a-1a954a7e6134)  
+  1. Alerts nearby drivers about the accident.  
+  2. Shows the distance to the accident to avoid congestion.  
+  3. Recommends safe speeds to handle emergencies.  
+
+- **Bad Weather Scenario**:  
+  ![Weather Alert Case](https://github.com/user-attachments/assets/d2a8ec66-f0d2-43b3-a2f9-90d14e0c05ec)  
+  1. Suggests turning on fog lights for better visibility.  
+  2. Advises drivers to slow down and drive carefully.  
+  3. Displays traffic rules, like "No Overtaking."
+
+#### 🚔 Tools for Authorities
+- Collects data from vehicles to find dangerous areas and their causes.
+- Gives clear information, like the best routes, to help emergency teams respond faster.
+
+---
+
+## 🎮 Simulations
+APT includes a **real-time hazard simulation** to:
+- Test how well the system responds to different types of accidents.
+- Improve its accuracy and effectiveness over time.
+
+---
+
+## 🚀 Future Plans 
+
+
+---
+
+## 🧑‍💻 Team Members
+- Soonwoong Kim
+- Hanbin Yeo
+- Wonjeong Lim
+- Eunji Lee
+- Seungjoo Kim
+
+---
+
+## 🤝 Contributors
 <a href="https://github.com/Eclipse-SDV-Hackathon-Chapter-Two-APT/APT/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Eclipse-SDV-Hackathon-Chapter-Two-APT/APT" />
+  <img src="https://contrib.rocks/image?repo=Eclipse-SDV-Hackathon-Chapter-Two-APT/APT" alt="Contributors" />
 </a>
 
-## Project Overview
+---
 
-Nowadays, we are exposed to various dangers on the road regardless of place or time. For example, a collision between vehicles in a city center can cause serious traffic disruption, and bad weather creates the worst possible situation for inattentive drivers. These traffic problems can have negative effects not only on the people involved, but also on other drivers.
-Therefore, we would like to propose a service that can protect surrounding vehicles from potential threats. We also propose a comprehensive traffic accident prevention system that guides the police to respond quickly to accidents and prevent secondary damage.
+## 📫 How to Contribute
+We’d love to hear your ideas and get your help! Here’s how you can contribute:
+1. Fork this project.  
+2. Create a new branch for your changes.  
+3. Submit a pull request with a clear explanation of your updates.
 
-### Use case
-
-- hit & run
-
-	In the event of a collision between vehicles, there are cases where the offending vehicle flees the scene. Drivers who flee can cause traffic chaos with their hasty driving, and the scope of police response varies depending on the time of reporting. Hit-and-run accidents accounted for 24% of the 7,454 crashes reported by NHTSA in 2020.
-
-- heay rainny
-
-	Bad weather poses a serious threat to drivers. Heavy rain, heavy snow, fog, etc. can impair visibility and function, and accidents caused by these can have more serious consequences than normal conditions. NHTSA reported that over a 10-year period, 10 percent of all crashes occurred on days when it rained.
-
-## Description
-### Architecture
-![APT_architecture](https://github.com/user-attachments/assets/a85ab296-1135-487f-8e65-ee53d13a284b)
-### Features
-
-Surrounding vehicles judge the traffic situation based on the information of the dangerous vehicle they received. Based on the judged information, they immediately display appropriate warning notifications on the HUD so that the driver can respond to potential threats in advance.
-
-**Dangerous Car**
-
-	Publishes VSS messages (crash information, speed, engine speed, humidity, etc.). This information is collected in real time and serves as the basis for situational assessment.
-
-**Car dirver**
-- Example 1 - Hit & Run
-![Hit Run Case](https://github.com/user-attachments/assets/37c3d149-702a-4e34-867a-1a954a7e6134)
-1) Notify the surroundings that an accident has occurred.
-2) Provide the distance to the accident site so that the driver can prepare for congested situations.
-3) Provide the recommended speed according to the driving speed so that the driver can prepare for sudden situations.
-
-- Example 2 - Inclement weather (heavy rain)
-![Weather Alert Case](https://github.com/user-attachments/assets/d2a8ec66-f0d2-43b3-a2f9-90d14e0c05ec)
-1) Provide guidance to use fog lights for safe driving.
-2) Provide guidance to maintain an appropriate speed.
-3) Provide traffic signs for safe driving such as no overtaking.
-
-**Police**
-
-	Receive vehicle data sets including the locations of vehicles reporting dangerous situations to identify dangerous areas and their causes. Provide additional information (route to the point) appropriate to the given information.
-
- ### Simulation
- ### Potential Improvement
+Let’s work together to make roads safer for everyone! 🚦
