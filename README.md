@@ -88,11 +88,3 @@ APT includes a **real-time hazard simulation** to:
 </a>
 
 ---
-
-## 📫 How to Contribute
-We’d love to hear your ideas and get your help! Here’s how you can contribute:
-1. Fork this project.  
-2. Create a new branch for your changes.  
-3. Submit a pull request with a clear explanation of your updates.
-
-Let’s work together to make roads safer for everyone! 🚦
