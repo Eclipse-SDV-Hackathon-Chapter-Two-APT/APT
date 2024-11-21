@@ -179,7 +179,7 @@ const App = () => {
   return (
     <div style={{ display: "flex", height: "100vh" }}>
       <div ref={mapRef} style={{ flex: 3, height: "100%" }}></div>
-      <div style={{ flex: 1, overflowY: "scroll", background: "#f8f8f8" }}>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", background: "#f8f8f8" }}>
         <div
           className=" h-[70px] relative left-[-0.5px] top-[-0.5px] bg-[#103a5e] flex justify-center items-center"
           style={{ boxShadow: '3px 0px 10px 0 rgba(0,0,0,0.25)' }}
@@ -192,12 +192,12 @@ const App = () => {
           </p>
         </div>
 
-        <div style={{ flex: 1, overflowY: "scroll", padding: "10px", marginTop: "-20px", background: "#f8f8f8" }}>
+        <div style={{ flex: 1, overflowY: "scroll", paddingLeft: "25px", marginTop: "0px", background: "#f8f8f8" }}>
           {accidents.slice().reverse().map((accident, index) => (
             <div
               key={index}
               onClick={() => handleAccidentClick(accident)}
-              className={`w-[351.85px] h-[132.83px] relative mb-4 ${newAccident === accident ? 'blink' : ''}`}
+              className={`w-[370px] h-[132.83px] relative mb-4 ${newAccident === accident ? 'blink' : ''}`}
               style={{
                 padding: "10px",
                 margin: "40px 0",
@@ -205,7 +205,8 @@ const App = () => {
                 background: "#ffffff",
                 cursor: "pointer",
                 position: "relative",
-                filter: "drop-shadow(0px 4px 4px rgba(0,0,0,0.25))"
+                filter: "drop-shadow(0px 4px 4px rgba(0,0,0,0.25))",
+                borderRadius: "5px"
               }}
             >
               <div className="w-[3.9px] h-[132.83px] absolute left-[-1px] top-[0.66px] rounded-tl-[10px] rounded-bl-[10px] bg-[#0097fb]" />
