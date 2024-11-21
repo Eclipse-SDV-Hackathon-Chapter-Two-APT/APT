@@ -23,17 +23,19 @@ def on_message(client, userdata, message):
     try:
         decoded_message = message.payload.decode('utf-8')
         data = json.loads(decoded_message)
+        collision_location = data.get("collision_location")
         vehicle_id = data.get("vehicle_id")
+
 
 
         if message.topic == "accident":
             alert_publish_message(TOPIC_ALERT, decoded_message)
             police_publish_message(TOPIC_POLICE, decoded_message)
-            print(f"Accident alert sent for vehicle {vehicle_id}")
+            print(f"Accident alert sent for vehicle {collision_location}")
         elif message.topic == "weather":
             alert_publish_message(TOPIC_WEATHER_ALERT, decoded_message)
             police_publish_message(TOPIC_POLICE, decoded_message)
-            print(f"Weather alert sent for vehicle {vehicle_id}")
+            # print(f"Weather alert sent for vehicle {vehicle_id}")
 
         print(f"Processed message from topic {message.topic}: {decoded_message}")
     except json.JSONDecodeError:
