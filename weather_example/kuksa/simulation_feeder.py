@@ -11,13 +11,11 @@ TOPIC = "accident"
 
 mqtt_client = mqtt.Client()
 
-
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
-        print("Connected to MQTT Broker!")
+        pass
     else:
         print(f"Failed to connect, return code {rc}")
-
 
 mqtt_client.on_connect = on_connect
 
@@ -25,33 +23,35 @@ try:
     mqtt_client.connect(BROKER_ADDRESS, PORT)
     mqtt_client.loop_start()
 
-    last_publish_time = time.time()  # 메시지 발행 시간 기록
+    last_publish_time = time.time()
+    collision_occurred = False
 
-    while True:
-        # 1초마다 위치 데이터 업데이트
+    while not collision_occurred:
         with VSSClient('127.0.0.1', 55555) as client:
             client.set_current_values({
                 'Vehicle.CurrentLocation.Latitude': Datapoint(initial_location["latitude"]),
                 'Vehicle.CurrentLocation.Longitude': Datapoint(initial_location["longitude"]),
             })
-            print(f"Feeding 'Vehicle.CurrentLocation.*' to initial location {initial_location}")
+
+        print("driving now")
 
         initial_location["latitude"] -= 0.12
         initial_location["longitude"] -= 0.04
 
-        # 현재 시간이 마지막 발행 시간으로부터 5초가 지났는지 확인
-        if time.time() - last_publish_time >= 5:
+        if time.time() - last_publish_time >= 10:
             location = {
-                "collision_location": {"latitude": 51, "longitude": 10}
+                "collision_location": collision_location
             }
-
             message = json.dumps(location)
             result = mqtt_client.publish(TOPIC, message)
+            print("---------------------------------------------------------------------------")
+            print(f"Accident happened at ------>> {collision_location}")
+            print("---------------------------------------------------------------------------")
+            collision_occurred = True
 
-            print(f"Published message to topic {TOPIC}: {message}")
-            last_publish_time = time.time()  # 마지막 발행 시간 업데이트
+        time.sleep(1)
 
-        time.sleep(1)  # 1초 대기
+    print("stop")
 
 except KeyboardInterrupt:
     print("Terminating the client...")
