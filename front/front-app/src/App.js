@@ -76,7 +76,7 @@ const App = () => {
       if (window.google) {
         mapInstance.current = new window.google.maps.Map(mapRef.current, {
           center: { lat: 49.014, lng: 8.4043 },
-          zoom: 12,
+          zoom: 15,
         });
         directionsService.current = new window.google.maps.DirectionsService();
         directionsRenderer.current = new window.google.maps.DirectionsRenderer()
@@ -88,7 +88,7 @@ const App = () => {
     };
 
     const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&region=GER&language=en`;
     script.async = true;
     script.defer = true;
     script.onload = loadGoogleMaps;
@@ -133,7 +133,7 @@ const App = () => {
   const handleAccidentClick = (accident) => {
     setSelectedAccident(accident);
     mapInstance.current.panTo({ lat: accident.latitude, lng: accident.longitude });
-    mapInstance.current.setZoom(14);
+    mapInstance.current.setZoom(18);
   };
 
   const handleDeleteAccident = (vehicleRegistrationNumber) => {
