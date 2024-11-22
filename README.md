@@ -57,7 +57,7 @@ Severe weather, like rain, fog, or snow, causes **10% of crashes over 10 years**
 ---
 
 ## 🚔 WebApplication for Authorities
-![img_web](https://github.com/user-attachments/assets/c062506a-95e0-4c77-a525-8627d80a3846)
+![img_web](https://github.com/user-attachments/assets/42a1e2df-d38f-4afa-b1e1-ecec047e0468)
 
 - Collects data from vehicles via **eclipse mosquitto**  to find dangerous areas and get an optimized route to the accident areas.
 - Gives clear information, like the best routes, to help emergency teams respond faster.
