@@ -74,10 +74,6 @@ Severe weather, like rain, fog, or snow, causes **10% of crashes over 10 years**
 4. Police car (blue) tracks the fleeing vehicle(red) in real time.
 ---
 
-## 🚀 Future Plans 
-
-
----
 
 ## 🧑‍💻 Team Members
 - Soonwoong Kim
