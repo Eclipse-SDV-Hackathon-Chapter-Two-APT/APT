@@ -66,7 +66,12 @@ Severe weather, like rain, fog, or snow, causes **10% of crashes over 10 years**
 ## 🎮 Simulations via **eclipse SUMO**  
 ![carcrash_simulation](https://github.com/user-attachments/assets/3b140131-4ab6-4459-a4f3-d21b1da36fd5)
 - Using SUMO, we visualized the entire flow of the APT system applied in the real world.
-
+- Assume a specific situation : Hit & Run
+    - Red Car: Offender / Green Car: Victim / Blue Car: Police
+1. Red and green vehicles collide at an intersection
+2. Collision message(event) sent
+3. Police car (blue) receives message and creates optimal route
+4. Police car (blue) tracks the fleeing vehicle(red) in real time.
 ---
 
 ## 🚀 Future Plans 
