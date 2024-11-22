@@ -34,7 +34,7 @@ Severe weather, like rain, fog, or snow, causes **10% of crashes over 10 years**
 ## 🛠️ Project Description
 
 ### 📊 System Architecture
-![APT_architecture](https://github.com/user-attachments/assets/a85ab296-1135-487f-8e65-ee53d13a284b)
+![img_architecture](https://github.com/user-attachments/assets/cbb8215a-aea0-4aab-a769-1eb45e296342)
 
 ### ✨ Key Application(Velocitas)
 
